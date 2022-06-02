@@ -1,0 +1,7 @@
+[Bb]in/
+[Ll]og/
+[Oo]bj/
+*.log
+dist/
+node_modules/
+cache/

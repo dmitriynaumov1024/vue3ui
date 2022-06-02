@@ -1,0 +1,49 @@
+body {
+  --border: 2px solid var(--color-fore);
+}
+
+.c-block {
+  position: relative;
+  display: block;
+  flex-direction: column;
+  border: var(--border);
+  overflow: hidden;
+}
+
+.c-nsdiagram {
+  border-radius: 4px;
+  overflow: hidden;
+  width: 20em;
+}
+
+.c-statement {
+  padding: 4px 20px;
+}
+
+.c-sequence>*{
+  width: 100%;
+  border: none;
+}
+
+.c-sequence>.c-block:not(:last-child) {
+  border-bottom: var(--border)
+}
+
+.c-branch>.c-block {
+  margin-left: 1.5rem;
+  margin-right: -2px;
+}
+
+.c-loop>.c-block {
+  margin-left: 1.5rem;
+  margin-right: -2px;
+  margin-bottom: -2px; 
+}
+
+.c-condition>.c-branch {
+  border: none;
+}
+
+.c-condition>.c-branch:last-child {
+  margin-bottom: -2px;
+}
