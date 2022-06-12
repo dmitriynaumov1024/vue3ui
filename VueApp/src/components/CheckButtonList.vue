@@ -1,10 +1,12 @@
 <template>
   <div>
     <div v-for="(item, i) in items" :key="i" class="list-item-wrap">
-      <CheckButton :text="item.text" 
+      <CheckButton
         :checked="isChecked(i)" 
         :disabled="isDisabled(item)" 
-        @check="() => check(i)" />
+        @check="() => check(i)">
+        {{item.text}}
+      </CheckButton>
     </div>
   </div>
 </template>

@@ -4,30 +4,34 @@
     :disabled="disabled" 
     :checked="checked">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 50 50" class="c-check-button">
-      <rect x="3" y="3" width="44" height="44" rx="12"  
+      viewBox="0 0 80 80" class="c-check-button">
+      <rect x="18" y="18" width="44" height="44" rx="12"  
         stroke="var(--color-border)" stroke-width="4"
         fill="var(--color-back)"/>
       <g v-if="checked">
-        <rect x="41" y="0" width="10" height="24"
+        <rect x="56" y="15" width="10" height="24"
            stroke-width="0" 
            fill="var(--color-back)" />
-        <path d="M 13 22 L 25 35 L 47 11"
+        <path d="M 28 37 L 40 50 L 62 26"
           stroke="var(--color-center)" stroke-width="8" 
           stroke-linecap="round" stroke-linejoin="round" 
           fill="none" />
       </g>
     </svg>
-    <span class="c-check-label">{{text}}</span>
+    <span class="c-check-label">
+      <template v-if="text">{{text}}</template>
+      <slot v-else></slot>
+    </span>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    text: String | Object,
+    text: [String, Number],
     disabled: Boolean,
-    checked: Boolean
+    checked: Boolean,
+    value: undefined
   },
   methods: {
     check () {
@@ -55,7 +59,7 @@ export default {
 }
 
 .c-check-button {
-  height: 1rem;
+  height: 1.6rem;
   margin-right: 1rem;
 }
 

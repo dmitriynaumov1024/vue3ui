@@ -4,22 +4,26 @@
     :disabled="disabled" 
     :checked="checked">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 50 50" class="c-radio-button">
-      <circle cx="25" cy="25" r="22" 
-        fill="none" stroke-width="4" stroke="var(--color-border)" />
-      <circle v-if="checked" cx="25" cy="25" r="12" 
+      viewBox="0 0 80 80" class="c-radio-button">
+      <circle cx="40" cy="40" r="22"
+        fill="var(--color-back)" stroke-width="4" stroke="var(--color-border)" />
+      <circle v-if="checked" cx="40" cy="40" r="12" 
         stroke-width="0" fill="var(--color-center)" />
     </svg>
-    <span class="c-radio-label">{{text}}</span>
+    <span class="c-radio-label">
+      <template v-if="text">{{text}}</template>
+      <slot v-else></slot>
+    </span>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    text: String | Object,
+    text: [String, Number],
     disabled: Boolean,
-    checked: Boolean
+    checked: Boolean,
+    value: undefined
   },
   methods: {
     check () {
@@ -47,7 +51,7 @@ export default {
 }
 
 .c-radio-button {
-  height: 1rem;
+  height: 1.6rem;
   margin-right: 1rem;
 }
 
