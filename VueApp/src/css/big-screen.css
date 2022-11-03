@@ -38,6 +38,15 @@
     flex-shrink: 1;
     overflow-y: auto;
   }
+
+  /* card */
+  .card {
+    background-color: var(--color-back);
+    padding: 1rem 1.5rem;
+    min-height: 4rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(120, 120, 120, 0.08);
+  }
 }
 
 @media screen and (min-width: 970px) {
